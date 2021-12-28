@@ -2,18 +2,15 @@
 
 my_file = open('c:\\202112_KHH_Python\\file_test\\test03.txt','r')   # r(read) : 파일 읽어오기 모드
 
-# 파일 내용 전부 읽고 싶다. => 몇 줄이 전부일까? 알 수 없음
-# 반복 횟수가 불명확한 반복 => while True : + if break 용법 활용
+# my_file의 모든 내용을 미리 파악해둔다면? 필요한 만큼만 반복 돌리면 된다.
+# 미리 파악 => readlines() => 모든 줄을 미리 읽어서 list로 담아준다
 
-while True:
-    line = my_file.readline()
-    
-    # 내용 출력 : 읽어온 내용이 있어야 의미있는 행위
-    # 읽어온 내용에 아무것도 없다. : 반복 종료
-    if not line:
-        print('파일을 끝까지 읽었습니다.')
-        break
-    
-    print(line, end='')    
+line_list = my_file.readlines()
+
+# 리스트 내부의 요소들 => 반복으로 뽑아내서 출력
+# for문의 정석 방법
+
+for line in line_list:
+    print(line)
 
 my_file.close()
